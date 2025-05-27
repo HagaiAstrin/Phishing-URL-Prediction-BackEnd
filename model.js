@@ -51,7 +51,7 @@ function predictTree(tree, featureVector) {
 // Predict label using all trees in the model
 export async function predict(features) {
   try {
-    const normalized = normalizeFeatures(features);
+    features = normalizeFeatures(features);
     const model = await loadModel();
     const trees = model.learner.gradient_booster.model.trees;
     const base_score = parseFloat(model.learner.attributes["base_score"] || "0.5");
@@ -69,8 +69,10 @@ export async function predict(features) {
     console.log("📊 Raw score:", score);
     console.log("🎯 Probability:", probability);
 
-    if (probability > 0.7) return "phishing";
-    else if (probability > 0.4) return "safe";
+    
+    if (probability > 0.85) return `phishing - ${(probability * 100).toFixed(0)}% confidence`;
+    else if (probability > 0.7) return `suspicious - ${(probability * 100).toFixed(0)}% confidence`;
+    else if (probability > 0.4) return `safe - ${1 - (probability * 100).toFixed(0)}% confidence`;
     else return "unknown";
   } catch (err) {
     console.error("Prediction error:", err);
