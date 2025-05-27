@@ -1,19 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Phishing Checker</title>
   <style>
-    body { font-family: sans-serif; padding: 10px; width: 250px; }
-    input { width: 100%; padding: 6px; margin-bottom: 10px; }
-    button { width: 100%; padding: 6px; }
-    #status { margin-top: 10px; font-weight: bold; text-align: center; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      width: 280px;
+      background: #f9f9f9;
+      box-sizing: border-box;
+    }
+    h3 {
+      margin-top: 0;
+      text-align: center;
+      color: #333;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #004999;
+    }
+    #status {
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .legitimate {
+      color: green;
+    }
+    .phishing {
+      color: red;
+    }
+    .suspicious {
+      color: orange;
+    }
   </style>
 </head>
 <body>
-  <h3>Check URL</h3>
+  <h3>🔍 Check URL</h3>
   <input type="text" id="urlInput" placeholder="https://example.com" />
   <button id="checkBtn">Check</button>
-  <div id="status">–</div>
+  <div id="status"></div>
   <script type="module" src="popup.js"></script>
 </body>
 </html>

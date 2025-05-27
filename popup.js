@@ -7,7 +7,7 @@ document.getElementById('checkBtn').addEventListener('click', async () => {
   try {
     const features = extractAllFeatures(url);
     const result = await predict(features);
-    statusEl.textContent = result;
+    statusEl.innerHTML = result;
     statusEl.style.color = result === 'phishing' ? 'red' : result === 'safe' ? 'green' : 'gray';
   } catch (err) {
     console.error(err);

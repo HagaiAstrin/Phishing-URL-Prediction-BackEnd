@@ -70,10 +70,13 @@ export async function predict(features) {
     console.log("🎯 Probability:", probability);
 
     
-    if (probability > 0.85) return `phishing - ${(probability * 100).toFixed(0)}% confidence`;
-    else if (probability > 0.7) return `suspicious - ${(probability * 100).toFixed(0)}% confidence`;
-    else if (probability > 0.4) return `safe - ${1 - (probability * 100).toFixed(0)}% confidence`;
-    else return "unknown";
+  if (probability > 0.85) {
+    return `🛑 <strong class="phishing">Phishing</strong><br><small>${(probability * 100).toFixed(0)}% confidence</small>`;
+  } else if (probability >= 0.7) {
+    return `⚠️ <strong class="suspicious">Suspicious</strong><br><small>${(probability * 100).toFixed(0)}% phishing confidence</small>`;
+  } else {
+    return `✅ <strong class="legitimate">Safe</strong><br><small>Under 70% phishing then it's probably safe</small>`;
+  }
   } catch (err) {
     console.error("Prediction error:", err);
     return "unknown";
