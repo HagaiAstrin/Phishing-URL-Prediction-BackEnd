@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing URL Checker",
+  "version": "1.0",
+  "description": "Check if a URL is phishing or not",
+  "permissions": [],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [{
+    "resources": ["xgb_model.json"],
+    "matches": ["<all_urls>"]
+  }],
+  "host_permissions": ["<all_urls>"]
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phishing Checker</title>
+  <style>
+    body { font-family: sans-serif; padding: 10px; width: 250px; }
+    input { width: 100%; padding: 6px; margin-bottom: 10px; }
+    button { width: 100%; padding: 6px; }
+    #status { margin-top: 10px; font-weight: bold; text-align: center; }
+  </style>
+</head>
+<body>
+  <h3>Check URL</h3>
+  <input type="text" id="urlInput" placeholder="https://example.com" />
+  <button id="checkBtn">Check</button>
+  <div id="status">–</div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
